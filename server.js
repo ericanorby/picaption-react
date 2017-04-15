@@ -14,25 +14,27 @@ const Caption = require('./db/models.js').Caption;
 app.use("/assets", express.static("public"));
 app.use(parser.json({extended: true}));
 
-// app.use(function(req, res, next) {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader("Access-Control-Allow-Credentials", "true");
-//   res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
-//   res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-//   next();
-// });
-
 app.use(cors())
 
-// app.get("/", function(req, res) {
-//   res.render("main")
-// })
-//
 app.get("/api/pictures", function(req, res){
   Picture.find({}).then(function(pictures){
     res.json(pictures)
   })
 })
+
+app.post("/api/pictures/:id/captions", function(req,res) {
+  Picture.findOne({_id: req.params.id}).then(function(picture){
+    Caption.create({author: req.body.author, content: req.body.content}).then((caption) => {
+      picture.captions.push(caption)
+      picture.save(function(err){
+          if (err) {
+            console.log(err)
+          }
+        })
+    })
+  })
+})
+
 //
 // app.get("/api/pictures/:id", function(req,res) {
 //   Picture.findOne({_id: req.params.id}).then(function(picture){

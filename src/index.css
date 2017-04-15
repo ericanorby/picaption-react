@@ -4,6 +4,13 @@ body {
   font-family: sans-serif;
 }
 
-img {
-  height: 200px;
+
+.pictures-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pictures-container img {
+  height: 160px;
+  margin: 10px;
 }

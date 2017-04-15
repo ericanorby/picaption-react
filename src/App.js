@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import Pictures from './components/Pictures'
+import ShowPicture from './components/ShowPicture'
 
 class App extends Component {
   render() {
@@ -24,6 +25,10 @@ class App extends Component {
                   <Pictures />
                 )
               }}
+            />
+            <Route
+              path="/pictures/:id"
+              component={ ShowPicture }
             />
           </main>
         </div>

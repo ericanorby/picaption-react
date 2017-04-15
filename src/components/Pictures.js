@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class Pictures extends Component {
   constructor(props){
@@ -30,15 +31,18 @@ class Pictures extends Component {
   render(){
 
     var pictures = this.state.pictures.map((pic, index) => {
+      let pathname = `/pictures/${pic._id}`
       return(
-        <div key={index}>
-          <img src={pic.photo_url} alt={pic.alt} />
-        </div>
+        <Link key={index} to={{pathname, state: {selected: pic}}}>
+          <div>
+            <img src={pic.photo_url} alt={pic.alt} />
+          </div>
+        </Link>
       )
     })
 
     return(
-      <div>
+      <div className="pictures-container">
         {pictures}
       </div>
     )
