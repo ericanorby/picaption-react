@@ -10,11 +10,34 @@ header {
 }
 
 header a {
-  font-size: 40px;
   margin: 0;
   font-family: 'Londrina Outline', cursive;
   color: black;
   text-decoration: none;
+}
+
+header h1 {
+  font-size: 60px;
+}
+
+#add-pic-btn {
+  background: black;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 20px;
+  height: 40px;
+  width: 40px;
+  border: 0px;
+  font-weight: lighter;
+  font-size: 28px;
+  border-radius: 50%;
+}
+
+#add-pic-btn span {
+  position: relative;
+  top: -8px;
+  color: white;
 }
 
 .homepage {
