@@ -26,6 +26,7 @@ class NewCaption extends Component {
     let content = this.state.content.trim()
     let author = this.state.author.trim()
     this.props.handleNewCaption({content, author})
+    this.props.showCaptions()
   }
 
   render(){
@@ -33,10 +34,10 @@ class NewCaption extends Component {
       <div>
         <form onSubmit={(e) => {this.handleSubmit(e)}}>
           <div>
-              <input type="text" placeholder="Write a silly caption here..." onChange={(e) => {this.handleContent(e)}} />
+              <textarea placeholder="Write a silly caption here..." onChange={(e) => {this.handleContent(e)}} required />
           </div>
           <div>
-              <input type="text" placeholder="Your name" onChange={(e) => {this.handleAuthor(e)}} />
+              <input type="text" placeholder="Your name" onChange={(e) => {this.handleAuthor(e)}} required />
           </div>
           <div>
               <button type="submit">Add my caption!</button>

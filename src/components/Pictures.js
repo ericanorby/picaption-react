@@ -14,7 +14,6 @@ class Pictures extends Component {
   loadData(){
     axios.get("http://localhost:3001/api/pictures")
     .then((res) => {
-      console.log("yippedoodaday")
       this.setState({
         pictures: res.data
       })

@@ -26,6 +26,31 @@ var sponge = new Picture({
   "alt": "Spongebob looking guilty with hands behind back"
 })
 
+Picture.create({
+  "photo_url": "http://i.telegraph.co.uk/multimedia/archive/03600/potd-squirrels_3600130k.jpg",
+  "alt": "Squirrels"
+})
+
+Picture.create({
+  "photo_url": "http://a.abcnews.com/images/International/RT-week-in-pictures-cricket-jef-170104_22x15_1600.jpg",
+  "alt": "Baseball player"
+})
+
+Picture.create({
+  "photo_url": "http://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2014/10/31/102141273-450751107.530x298.jpg?v=1440513637",
+  "alt": "A robot using the phone"
+})
+
+Picture.create({
+  "photo_url": "http://media.npr.org/assets/img/2016/12/08/coleman-and-son--bf0e6d7405337a25d19a9074f92df5c760499807-s900-c85.jpeg",
+  "alt": "Adult and child playing with silly putty"
+})
+
+Picture.create({
+  "photo_url": "https://s3-us-west-2.amazonaws.com/extra-crispy-media/assets/field%2Fimage%2Fcoffee-spill-hero.jpg",
+  "alt": "A man spilling coffee"
+})
+
 var caption1 = new Caption({
   "author": "Eva",
   "content": "Help! I'm stuck and I can't get out!"

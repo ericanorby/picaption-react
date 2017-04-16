@@ -7,7 +7,6 @@ const port = process.env.API_PORT || 3001
 const parser = require('body-parser');
 const mongoose = require('./db/connection.js');
 
-// pulling schemas from models
 const Picture = require('./db/models.js').Picture;
 const Caption = require('./db/models.js').Caption;
 
@@ -22,9 +21,9 @@ app.get("/api/pictures", function(req, res){
   })
 })
 
-app.post("/api/pictures/:id/captions", function(req,res) {
+app.post("/api/pictures/:id/captions", function(req, res){
   Picture.findOne({_id: req.params.id}).then(function(picture){
-    Caption.create({author: req.body.author, content: req.body.content}).then((caption) => {
+    Caption.create({author: req.body.author, content: req.body.content}).then(function(caption){
       picture.captions.push(caption)
       picture.save(function(err){
           if (err) {
@@ -32,6 +31,12 @@ app.post("/api/pictures/:id/captions", function(req,res) {
           }
         })
     })
+  })
+})
+
+app.get("/api/pictures/:id/captions", function(req, res){
+  Picture.findOne({_id: req.params.id}).then(function(picture){
+    res.json(picture.captions)
   })
 })
 

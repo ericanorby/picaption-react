@@ -6,6 +6,7 @@ import {
   Redirect
 } from 'react-router-dom'
 
+import Home from './components/Home'
 import Pictures from './components/Pictures'
 import ShowPicture from './components/ShowPicture'
 
@@ -15,11 +16,21 @@ class App extends Component {
       <Router>
         <div>
           <header>
-            <h1>Picaption</h1>
+            <Link to="/pictures">
+              <h1>Picaption</h1>
+            </Link>
           </header>
           <main>
             <Route
               exact path="/"
+              render={() => {
+                return(
+                  <Home />
+                )
+              }}
+            />
+            <Route
+              exact path="/pictures"
               render={() => {
                 return(
                   <Pictures />

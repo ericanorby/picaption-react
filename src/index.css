@@ -1,16 +1,117 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
   font-family: sans-serif;
+  background: #d4ddb4;
 }
 
+header {
+  text-align: center;
+}
+
+header a {
+  font-size: 40px;
+  margin: 0;
+  font-family: 'Londrina Outline', cursive;
+  color: black;
+  text-decoration: none;
+}
+
+.homepage {
+  height: 100vh;
+  text-align: center;
+}
+
+.homepage img {
+  width: 800px;
+}
 
 .pictures-container {
   display: flex;
   flex-wrap: wrap;
 }
 
+.pictures-container div {
+  background: white;
+  padding: 10px 10px 40px 10px;
+  margin: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 5px gray;
+}
+
+.pictures-container div:hover {
+  border-color: black;
+}
+
 .pictures-container img {
   height: 160px;
+  /*margin: 10px;*/
+}
+
+.show-pic {
+  text-align: center;
+  background: white;
+  width: 800px;
+  border: 1px solid lightgray;
+  margin: 40px auto;
+  padding: 30px;
+  box-shadow: 2px 2px 5px gray;
+}
+
+.show-pic img {
+  width: 100%;
+}
+
+form {
+  /*background: white;*/
+  margin: 30px auto;
+}
+
+textarea, input, button {
+  font-size: 16px;
+  padding: 10px;
   margin: 10px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+textarea:focus, input:focus, button:focus {
+  outline: none;
+}
+
+form textarea {
+  width: 500px;
+  height: 60px;
+  resize: none;
+}
+
+form input {
+  width: 500px;
+}
+
+form button {
+  width: 523px;
+  color: white;
+  background: #2dd7cd;
+}
+
+.captions-container {
+  text-align: left;
+}
+
+.captions-container > div {
+  border-bottom: 1px solid lightgray;
+  padding-top: 10px;
+}
+
+p {
+  color: gray;
+  text-align: right;
+}
+
+.content {
+  font-family: 'Patrick Hand', cursive;
+  text-align: left;
+  color: black;
+  font-size: 25px;
 }
