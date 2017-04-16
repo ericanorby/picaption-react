@@ -1,8 +1,11 @@
 body {
   margin: 0;
   padding: 0 10px;
-  font-family: sans-serif;
-  background: #d4ddb4;
+  background: #e4e4e4;
+}
+
+html * {
+  font-family: 'Neucha', cursive;
 }
 
 header {
@@ -12,16 +15,20 @@ header {
 header a {
   margin: 0;
   font-family: 'Londrina Outline', cursive;
-  color: black;
+  color: #03d7cb;
   text-decoration: none;
 }
 
 header h1 {
-  font-size: 60px;
+  font-size: 70px;
 }
 
-#add-pic-btn {
-  background: black;
+.modal-header {
+  margin-left: 10px;
+}
+
+#add-pic-btn, #close-modal-btn {
+  background: #7f7af4;
   position: absolute;
   right: 0;
   top: 0;
@@ -36,8 +43,19 @@ header h1 {
 
 #add-pic-btn span {
   position: relative;
-  top: -8px;
-  color: white;
+  font-family: sans-serif;
+  top: -9px;
+}
+
+#close-modal-btn {
+  background: none;
+}
+
+#close-modal-btn span {
+  position: relative;
+  font-family: sans-serif;
+  color: black;
+  top: -9px;
 }
 
 .homepage {
@@ -58,7 +76,7 @@ header h1 {
   background: white;
   padding: 10px 10px 40px 10px;
   margin: 10px;
-  border: 1px solid lightgray;
+  border: 1px solid #f4f4f4;
   box-shadow: 2px 2px 5px gray;
 }
 
@@ -86,12 +104,11 @@ header h1 {
 }
 
 form {
-  /*background: white;*/
   margin: 30px auto;
 }
 
 textarea, input, button {
-  font-size: 16px;
+  font-size: 18px;
   padding: 10px;
   margin: 10px;
   border: 1px solid lightgray;
@@ -102,20 +119,22 @@ textarea:focus, input:focus, button:focus {
   outline: none;
 }
 
-form textarea {
+textarea {
   width: 500px;
   height: 60px;
   resize: none;
 }
 
-form input {
+input {
   width: 500px;
 }
 
-form button {
+button {
+  border: 0px;
   width: 523px;
   color: white;
-  background: #2dd7cd;
+  background: #f67467;
+  cursor: pointer;
 }
 
 .captions-container {
@@ -133,7 +152,6 @@ p {
 }
 
 .content {
-  font-family: 'Patrick Hand', cursive;
   text-align: left;
   color: black;
   font-size: 25px;

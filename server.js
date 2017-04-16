@@ -21,15 +21,36 @@ app.get("/api/pictures", function(req, res){
   })
 })
 
+app.post("/api/pictures", function(req, res){
+  var newPicture = new Picture({
+    photo_url: req.body.url,
+    alt: req.body.alt
+  })
+  newPicture.save(function(err, picture){
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(picture)
+    }
+  })
+})
+
 app.post("/api/pictures/:id/captions", function(req, res){
+  var newCaption = new Caption({
+    author: req.body.author,
+    content: req.body.content
+  })
   Picture.findOne({_id: req.params.id}).then(function(picture){
-    Caption.create({author: req.body.author, content: req.body.content}).then(function(caption){
+    newCaption.save(function(err, caption){
+      if (err) {
+        console.log(err)
+      }
       picture.captions.push(caption)
       picture.save(function(err){
-          if (err) {
-            console.log(err)
-          }
-        })
+        if (err) {
+          console.log(err)
+        }
+      })
     })
   })
 })

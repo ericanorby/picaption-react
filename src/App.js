@@ -5,10 +5,12 @@ import {
   Link
 } from 'react-router-dom'
 import Modal from 'react-modal'
+import axios from 'axios'
 
 import Home from './components/Home'
 import Pictures from './components/Pictures'
 import ShowPicture from './components/ShowPicture'
+import NewPicture from './components/NewPicture'
 
 const customStyles = {
   content : {
@@ -22,31 +24,36 @@ const customStyles = {
 };
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(){
+    super()
     this.state = {
       modalIsOpen: false
     }
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
-  openModal() {
-    this.setState({modalIsOpen: true});
+  openModal(){
+    this.setState({
+      modalIsOpen: true
+    })
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.refs.subtitle.style.color = '#f00';
+  closeModal(){
+    this.setState({
+      modalIsOpen: false
+    })
   }
 
-  closeModal() {
-    this.setState({modalIsOpen: false});
+  handleNewPicture(picture){
+    axios.post(`http://localhost:3001/api/pictures`, picture)
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
-  render() {
-    return (
+  render(){
+    return(
       <Router>
         <div>
 
@@ -57,18 +64,7 @@ class App extends Component {
             style={customStyles}
             contentLabel="uploadPhoto"
           >
-            <h1>Upload a new picture</h1>
-            <form>
-              <div>
-                <input type="text" placeholder="Photo URL" />
-              </div>
-              <div>
-                <input type="text" placeholder="an alt" />
-              </div>
-              <div>
-                <button type="submit">Upload</button>
-              </div>
-            </form>
+            <NewPicture closeModal={() => this.closeModal()} handleNewPicture={(e) => this.handleNewPicture(e)} />
           </Modal>
 
           <header>

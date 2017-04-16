@@ -4,7 +4,7 @@ class Home extends Component {
   render(){
     return(
       <div className="homepage">
-        <img src="polaroid.png" />
+        <img src="polaroid.png" alt="Polaroid pictures"/>
       </div>
     )
   }
