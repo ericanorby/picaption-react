@@ -13,7 +13,7 @@ header {
   background: #f0f6f4;
   margin: 0 auto;
   padding: 15px;
-  box-shadow: 0px 0px 8px gray;
+  box-shadow: 0px 0px 8px #bdbdbd;
 }
 
 header a {
@@ -37,14 +37,21 @@ header h1 {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 18px;
+  font-size: 22px;
   color: white;
   margin: 20px;
   background: #808080;
-  padding: 8px;
+  padding: 5px 10px;
   border: 0px;
   border-radius: 3px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#view-pics-btn span {
+  font-size: 16px;
+  margin-left: 8px;
 }
 
 #view-pics-btn:hover, #add-pic-btn:hover {
@@ -80,7 +87,8 @@ header h1 {
   position: relative;
   font-family: sans-serif;
   color: gray;
-  top: -9px;
+  font-size: 20px;
+  top: -12px;
 }
 
 .homepage {
@@ -97,6 +105,7 @@ header h1 {
 .homepage h1 {
   margin: 0;
   font-size: 35px;
+  font-family: 'Neucha', cursive;
 }
 
 .homepage h2 {
@@ -155,7 +164,7 @@ textarea, input, button {
   font-size: 16px;
   padding: 10px;
   margin: 10px;
-  border: 1px solid lightgray;
+  border: 1px solid #fb8b80;
   border-radius: 5px;
 }
 
@@ -174,7 +183,6 @@ input {
 }
 
 button {
-  border: 2px solid #f67467;
   width: 423px;
   color: white;
   background: #f67467;
@@ -182,7 +190,7 @@ button {
 }
 
 button:hover {
-  border-color: black;
+  opacity: 0.5;
 }
 
 .captions-container {
@@ -212,18 +220,18 @@ p {
 }
 
 footer {
-  background: white;
-  padding: 20px;
+  background: #f4f4f4;
+  padding: 10px;
   text-align: center;
-  box-shadow: 0px 0px 8px lightgray;
+  box-shadow: 0px 0px 8px #bdbdbd;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 footer > * {
-  width: 200px;
-  margin: 0 30px;
+  margin: 10px 50px;
 }
 
 #github {

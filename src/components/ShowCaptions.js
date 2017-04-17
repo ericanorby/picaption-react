@@ -9,21 +9,19 @@ class ShowCaptions extends Component {
   // }
 
   render(){
-    console.log(this.props.captions.length)
-    var captions = this.props.captions.map((caption, index) => {
-      if (this.props.captions.length === false) {
-        return(
-          <p>no comments yet!</p>
-        )
-      } else {
-        return(
-          <div key={index}>
-            <p className="content">{caption.content}</p>
-            <p>Submitted by: {caption.author}</p>
-          </div>
-        )
-      }
-    })
+    var captions
+    if (this.props.captions.length === 0) {
+      captions = <p>No one else has submitted a caption yet, check back later <i className="fa fa-smile-o" aria-hidden="true"></i></p>
+    } else {
+      captions = this.props.captions.map((caption, index) => {
+          return(
+            <div key={index}>
+              <p className="content">{caption.content}</p>
+              <p>Submitted by: {caption.author}</p>
+            </div>
+          )
+      })
+    }
     return(
       <div className="captions-container">
         <h1><i className="fa fa-check-circle" aria-hidden="true"></i> Thanks for submitting your caption! Now check out what other users submitted:</h1>

@@ -36,22 +36,9 @@ app.post("/api/pictures/:id/captions", function(req, res){
     content: req.body.content
   })
   Picture.findOne({_id: req.params.id}).then(function(picture){
-    // newCaption.save(function(err, caption){
-    //   if (err) {
-    //     console.log(err)
-    //   }
-    //   picture.captions.push(caption)
-    //   picture.save(function(err){
-    //     if (err) {
-    //       console.log(err)
-    //     }
-    //   })
-    // })
-    newCaption.save().then(function(caption){
-      picture.captions.push(caption)
+      picture.captions.push(newCaption)
       picture.save()
     })
-  })
 })
 
 app.get("/api/pictures/:id/captions", function(req, res){

@@ -44,7 +44,7 @@ class NewPicture extends Component {
             <button type="submit">Upload</button>
           </div>
         </form>
-        <button id="close-modal-btn" onClick={() => this.props.closeModal()}><span>x</span></button>
+        <button id="close-modal-btn" onClick={() => this.props.closeModal()}><span>&#10005;</span></button>
       </div>
     )
   }
