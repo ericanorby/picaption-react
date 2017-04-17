@@ -11,14 +11,14 @@ var path = require('path');
 const Picture = require('./db/models.js').Picture;
 const Caption = require('./db/models.js').Caption;
 
-app.use(express.static(__dirname + '/build'))
+// app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 app.use(parser.json({extended: true}));
 
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.sendFile('build/index.html', {root: __dirname});
-});
+// app.get('/', (req, res) => {
+//   res.sendFile('index.html', {root: __dirname});
+// });
 
 app.get("/api/pictures", function(req, res){
   Picture.find({}).then(function(pictures){

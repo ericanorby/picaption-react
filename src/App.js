@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom'
 import Modal from 'react-modal'
 import axios from 'axios'
@@ -84,13 +85,13 @@ class App extends Component {
                 <span> Browse Photos</span>
               </div>
             </Link>
-            <h1><Link to="/pictures">Picaption</Link></h1>
+            <h1><Link to="/home">Picaption</Link></h1>
             <button id="add-pic-btn" onClick={() => this.openModal()}><span>+</span></button>
           </header>
 
           <main>
             <Route
-              exact path="/"
+              exact path="/home"
               render={() => {
                 return(
                   <Home />
@@ -108,6 +109,12 @@ class App extends Component {
             <Route
               path="/pictures/:id"
               component={ ShowPicture }
+            />
+            <Route
+              path="/*"
+              render={() => {
+                return <Redirect to="/home" />
+              }}
             />
           </main>
 
