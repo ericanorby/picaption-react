@@ -15,6 +15,10 @@ app.use(parser.json({extended: true}));
 
 app.use(cors())
 
+app.get("/", function(req, res){
+  res.render('index');
+});
+
 app.get("/api/pictures", function(req, res){
   Picture.find({}).then(function(pictures){
     res.json(pictures)
