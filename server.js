@@ -16,8 +16,8 @@ app.use(parser.json({extended: true}));
 
 app.use(cors())
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+app.get('/', (req, res) => {
+  res.sendFile('index.html');
 });
 
 app.get("/api/pictures", function(req, res){
