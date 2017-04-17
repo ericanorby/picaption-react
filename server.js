@@ -10,13 +10,13 @@ const mongoose = require('./db/connection.js');
 const Picture = require('./db/models.js').Picture;
 const Caption = require('./db/models.js').Caption;
 
-app.use(express.static(__dirname + '/build'))
+app.use(express.static(path.resolve(__dirname, '..', 'build')));
 app.use(parser.json({extended: true}));
 
 app.use(cors())
 
-app.get("/", function(req, res){
-  res.render('index');
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
 app.get("/api/pictures", function(req, res){
