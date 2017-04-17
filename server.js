@@ -30,15 +30,21 @@ app.post("/api/pictures", function(req, res){
   })
 })
 
-app.post("/api/pictures/:id/captions", function(req, res){
-  var newCaption = new Caption({
-    author: req.body.author,
-    content: req.body.content
+app.delete("/api/pictures/:id", function(req, res){
+  Picture.findOneAndRemove({_id: req.params.id}).then(function(){
+    res.json({success: true})
   })
+})
+
+app.post("/api/pictures/:id/captions", function(req, res){
   Picture.findOne({_id: req.params.id}).then(function(picture){
-      picture.captions.push(newCaption)
-      picture.save()
+    var newCaption = new Caption(req.body)
+    picture.captions.push(newCaption)
+    picture.save(function(err, picture){
+      if (err) throw err;
+      res.json(picture)
     })
+  })
 })
 
 app.get("/api/pictures/:id/captions", function(req, res){
@@ -47,45 +53,12 @@ app.get("/api/pictures/:id/captions", function(req, res){
   })
 })
 
-//
-// app.get("/api/pictures/:id", function(req,res) {
-//   Picture.findOne({_id: req.params.id}).then(function(picture){
-//     res.json(picture)
-//   })
-// })
-//
-// app.post("/api/pictures", function(req, res){
-//   Picture.create(req.body).then(function(picture){
-//     res.json(picture);
-//   });
-// });
-//
-// app.delete("/api/pictures/:id", function(req, res){
-//   Picture.findOneAndRemove({_id: req.params.id}).then(function(){
-//     res.json({success: true});
-//   });
-// });
-//
+
 // app.put("/api/pictures/:id", function(req, res){
 //   Picture.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}).then(function(picture){
 //     res.json(picture);
 //   });
 // });
-//
-// app.get("/api/pictures/:pic_id/captions", function(req,res){
-//   Picture.findOne({_id: req.params.pic_id}).then(function(){
-//     res.json(picture);
-//   })
-// })
-//
-//
-// app.post("/api/pictures/:pic_id/captions", function(req,res) {
-//   Picture.findOne({_id: req.params.pic_id}).then(function(){
-//     Caption.create({author: req.body.author, content: req.body.content}).then((caption) => {
-//       res.json(caption)
-//     })
-//   })
-// })
 
 app.listen(port, function(){
   console.log("Port works yaaaaay");

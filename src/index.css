@@ -119,6 +119,7 @@ header h1 {
 }
 
 .pictures-container {
+  min-height: 90vh;
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
@@ -142,7 +143,7 @@ header h1 {
 }
 
 .show-pic {
-  text-align: center;
+  min-height: 90vh;
   background: white;
   width: 800px;
   border: 1px solid #e4e4e4;
@@ -156,8 +157,26 @@ header h1 {
   border: 1px solid #e4e4e4;
 }
 
+.show-pic a {
+  cursor: pointer;
+  color: darkred;
+  padding: 5px 0;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+}
+
+.show-pic i {
+  margin-top: 20px;
+}
+
+.show-pic a:hover {
+  border-color: darkred;
+
+}
+
 form {
   margin: 20px auto;
+  text-align: center;
 }
 
 textarea, input, button {

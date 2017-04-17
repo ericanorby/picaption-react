@@ -6,8 +6,7 @@ class Pictures extends Component {
   constructor(props){
     super(props)
     this.state = {
-      pictures: [],
-      update: {}
+      pictures: []
     }
     this.loadData = this.loadData.bind(this)
   }

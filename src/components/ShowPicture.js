@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 import NewCaption from './NewCaption'
 import ShowCaptions from './ShowCaptions'
@@ -10,7 +11,8 @@ class ShowPicture extends Component {
     this.state = {
       pic: this.props.location.state.selected,
       captionCreated: false,
-      captions: []
+      captions: [],
+      deleted: false
     }
   }
 
@@ -31,7 +33,22 @@ class ShowPicture extends Component {
     })
   }
 
+  deletePhoto(){
+    axios.delete(`http://localhost:3001/api/pictures/${this.state.pic._id}`)
+    .then((res) => {
+      this.setState({
+        deleted: true
+      })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
+
   render(){
+    if (this.state.deleted) {
+      return <Redirect to="/pictures" />
+    }
     var link = undefined
     if (this.state.captionCreated){
       link = <ShowCaptions captions={this.state.captions} />
@@ -42,6 +59,7 @@ class ShowPicture extends Component {
       <div className="show-pic">
         <img src={this.state.pic.photo_url} alt={this.state.pic.alt} />
         { link }
+        <a onClick={() => this.deletePhoto()}><i className="fa fa-minus-square" aria-hidden="true"></i> delete</a>
       </div>
     )
   }
