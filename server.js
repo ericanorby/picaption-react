@@ -3,7 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = process.env.API_PORT || 3001
+const port = process.env.PORT || 3001
 const parser = require('body-parser');
 const mongoose = require('./db/connection.js');
 
