@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  padding: 0 10px;
-  background: #e4e4e4;
+  padding: 0;
+  background: #fcf6e6;
 }
 
 html * {
@@ -10,34 +10,53 @@ html * {
 
 header {
   text-align: center;
+  background: #f0f6f4;
+  margin: 0 auto;
+  padding: 15px;
+  box-shadow: 0px 0px 10px gray;
 }
 
 header a {
   margin: 0;
   font-family: 'Londrina Outline', cursive;
-  color: #03d7cb;
+  color: black;
   text-decoration: none;
 }
 
 header h1 {
   font-size: 70px;
+  margin: 0;
 }
 
 .modal-header {
   margin-left: 10px;
 }
 
+#view-pics-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  color: white;
+  margin: 20px;
+  background: #808080;
+  padding: 8px;
+  border: 0px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 #add-pic-btn, #close-modal-btn {
-  background: #7f7af4;
+  background: #5fdd99;
   position: absolute;
   right: 0;
   top: 0;
   margin: 20px;
-  height: 40px;
-  width: 40px;
+  height: 34px;
+  width: 34px;
   border: 0px;
   font-weight: lighter;
-  font-size: 28px;
+  font-size: 24px;
   border-radius: 50%;
 }
 
@@ -45,6 +64,7 @@ header h1 {
   position: relative;
   font-family: sans-serif;
   top: -9px;
+  left: -1px;
 }
 
 #close-modal-btn {
@@ -59,24 +79,43 @@ header h1 {
 }
 
 .homepage {
-  height: 100vh;
-  text-align: center;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://static.pexels.com/photos/296649/pexels-photo-296649.jpeg");
+  background-size: cover;
+  opacity: 0.7;
+  color: white;
 }
 
-.homepage img {
-  width: 800px;
+.homepage h1 {
+  margin: 0;
+  /*padding: 10px 0px;*/
+  font-size: 35px;
+}
+
+.homepage h2 {
+  font-size: 60px;
+  margin: 0;
+  color: lightgray;
+}
+
+.homepage .intro {
+  padding: 30px;
 }
 
 .pictures-container {
   display: flex;
   flex-wrap: wrap;
+  padding: 20px;
 }
 
 .pictures-container div {
   background: white;
   padding: 10px 10px 40px 10px;
   margin: 10px;
-  border: 1px solid #f4f4f4;
+  border: 1px solid #e4e4e4;
   box-shadow: 2px 2px 5px gray;
 }
 
@@ -85,7 +124,7 @@ header h1 {
 }
 
 .pictures-container img {
-  height: 160px;
+  height: 140px;
   /*margin: 10px;*/
 }
 
@@ -93,7 +132,7 @@ header h1 {
   text-align: center;
   background: white;
   width: 800px;
-  border: 1px solid lightgray;
+  border: 1px solid #e4e4e4;
   margin: 40px auto;
   padding: 30px;
   box-shadow: 2px 2px 5px gray;
@@ -130,11 +169,15 @@ input {
 }
 
 button {
-  border: 0px;
+  border: 2px solid #f67467;
   width: 523px;
   color: white;
   background: #f67467;
   cursor: pointer;
+}
+
+button:hover {
+  border-color: black;
 }
 
 .captions-container {
@@ -144,6 +187,11 @@ button {
 .captions-container > div {
   border-bottom: 1px solid lightgray;
   padding-top: 10px;
+}
+
+.captions-container h1 {
+  font-size: 26px;
+  color: #5fdd99;
 }
 
 p {

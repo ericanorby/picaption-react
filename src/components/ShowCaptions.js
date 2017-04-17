@@ -19,6 +19,7 @@ class ShowCaptions extends Component {
     })
     return(
       <div className="captions-container">
+        <h1><i className="fa fa-check-circle" aria-hidden="true"></i> Thanks for submitting your caption! Now check out what other users submitted:</h1>
         {captions}
       </div>
     )

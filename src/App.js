@@ -27,7 +27,8 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      update: {}
     }
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
@@ -45,8 +46,17 @@ class App extends Component {
     })
   }
 
+  update(pic){
+    this.setState({
+      update: pic
+    })
+  }
+
   handleNewPicture(picture){
     axios.post(`http://localhost:3001/api/pictures`, picture)
+    .then((res) => {
+      this.update(res.data)
+    })
     .catch((err) => {
       console.log(err);
     })
@@ -68,6 +78,12 @@ class App extends Component {
           </Modal>
 
           <header>
+            <Link to="/pictures">
+              <div id="view-pics-btn">
+                <i className="fa fa-picture-o" aria-hidden="true"></i>
+                <span> Browse Photos</span>
+              </div>
+            </Link>
             <h1><Link to="/pictures">Picaption</Link></h1>
             <button id="add-pic-btn" onClick={() => this.openModal()}><span>+</span></button>
           </header>
@@ -85,7 +101,7 @@ class App extends Component {
               exact path="/pictures"
               render={() => {
                 return(
-                  <Pictures />
+                  <Pictures update={this.state.update} />
                 )
               }}
             />

@@ -6,7 +6,8 @@ class Pictures extends Component {
   constructor(props){
     super(props)
     this.state = {
-      pictures: []
+      pictures: [],
+      update: {}
     }
     this.loadData = this.loadData.bind(this)
   }
@@ -27,8 +28,11 @@ class Pictures extends Component {
     this.loadData()
   }
 
-  render(){
+  componentWillReceiveProps(nextProps){
+    this.loadData()
+  }
 
+  render(){
     var pictures = this.state.pictures.map((pic, index) => {
       let pathname = `/pictures/${pic._id}`
       return(
