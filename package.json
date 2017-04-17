@@ -15,11 +15,11 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-modal": "^1.7.6",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "react-scripts": "0.9.5"
   },
   "devDependencies": {
-    "gh-pages": "^0.12.0",
-    "react-scripts": "0.9.5"
+    "gh-pages": "^0.12.0"
   },
   "scripts": {
     "start": "react-scripts start",
