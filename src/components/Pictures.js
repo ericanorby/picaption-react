@@ -12,7 +12,7 @@ class Pictures extends Component {
   }
 
   loadData(){
-    axios.get("http://localhost:3001/api/pictures")
+    axios.get("https://picaption.herokuapp.com/api/pictures")
     .then((res) => {
       this.setState({
         pictures: res.data

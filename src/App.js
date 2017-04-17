@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   handleNewPicture(picture){
-    axios.post(`http://localhost:3001/api/pictures`, picture)
+    axios.post(`https://picaption.herokuapp.com/api/pictures`, picture)
     .then((res) => {
       this.update(res.data)
     })

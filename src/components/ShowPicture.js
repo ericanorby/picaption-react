@@ -17,7 +17,7 @@ class ShowPicture extends Component {
   }
 
   showCaptions(){
-    axios.get(`http://localhost:3001/api/pictures/${this.state.pic._id}/captions`)
+    axios.get(`https://picaption.herokuapp.com/api/pictures/${this.state.pic._id}/captions`)
     .then((res) => {
       this.setState({
         captionCreated: true,
@@ -27,14 +27,14 @@ class ShowPicture extends Component {
   }
 
   handleNewCaption(caption){
-    axios.post(`http://localhost:3001/api/pictures/${this.state.pic._id}/captions`, caption)
+    axios.post(`https://picaption.herokuapp.com/api/pictures/${this.state.pic._id}/captions`, caption)
     .catch((err) => {
       console.log(err);
     })
   }
 
   deletePhoto(){
-    axios.delete(`http://localhost:3001/api/pictures/${this.state.pic._id}`)
+    axios.delete(`https://picaption.herokuapp.com/api/pictures/${this.state.pic._id}`)
     .then((res) => {
       this.setState({
         deleted: true
