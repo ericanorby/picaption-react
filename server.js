@@ -6,17 +6,18 @@ const app = express();
 const port = process.env.PORT || 3001
 const parser = require('body-parser');
 const mongoose = require('./db/connection.js');
+var path = require('path');
 
 const Picture = require('./db/models.js').Picture;
 const Caption = require('./db/models.js').Caption;
 
-app.use(express.static(path.resolve(__dirname, '..', 'build')));
+app.use(express.static(__dirname + '/build'))
 app.use(parser.json({extended: true}));
 
 app.use(cors())
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 });
 
 app.get("/api/pictures", function(req, res){
