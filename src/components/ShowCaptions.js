@@ -9,13 +9,20 @@ class ShowCaptions extends Component {
   // }
 
   render(){
+    console.log(this.props.captions.length)
     var captions = this.props.captions.map((caption, index) => {
-      return(
-        <div key={index}>
-          <p className="content">{caption.content}</p>
-          <p>Submitted by: {caption.author}</p>
-        </div>
-      )
+      if (this.props.captions.length === false) {
+        return(
+          <p>no comments yet!</p>
+        )
+      } else {
+        return(
+          <div key={index}>
+            <p className="content">{caption.content}</p>
+            <p>Submitted by: {caption.author}</p>
+          </div>
+        )
+      }
     })
     return(
       <div className="captions-container">

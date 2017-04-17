@@ -111,6 +111,11 @@ class App extends Component {
             />
           </main>
 
+          <footer>
+            <span>created by Erica Norby</span>
+            <a href="https://github.com/ericanorby" target="_blank"><i id="github" className="fa fa-github" aria-hidden="true"></i></a>
+            <a href="http://www.ericanorby.com" target="_blank"><span id="website">ericanorby.com</span></a>
+          </footer>
         </div>
       </Router>
     );
