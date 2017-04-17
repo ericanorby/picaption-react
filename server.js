@@ -10,7 +10,7 @@ const mongoose = require('./db/connection.js');
 const Picture = require('./db/models.js').Picture;
 const Caption = require('./db/models.js').Caption;
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/build'))
 app.use(parser.json({extended: true}));
 
 app.use(cors())
