@@ -59,7 +59,8 @@ header h1 {
 }
 
 #add-pic-btn, #close-modal-btn {
-  background: #5fdd99;
+  /*background: #5fdd99;*/
+  background: #839afc;
   position: absolute;
   right: 0;
   top: 0;
@@ -92,9 +93,9 @@ header h1 {
 }
 
 .homepage {
-  min-height: 90vh;
+  /*height: 80vh;*/
   display: flex;
-  padding-top: 50px;
+  padding: 80px 0;
   justify-content: center;
   background-image: url("../public/pictures.jpeg");
   background-size: cover;
@@ -111,7 +112,6 @@ header h1 {
 .homepage h2 {
   font-size: 60px;
   margin: 0;
-  color: #b3ecd2;
 }
 
 .homepage .intro {
@@ -119,9 +119,11 @@ header h1 {
 }
 
 .pictures-container {
-  min-height: 90vh;
+  /*min-height: 90vh;*/
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
+  /*justify-content: center;*/
   padding: 20px;
 }
 
@@ -159,10 +161,6 @@ header h1 {
 
 .show-pic a {
   cursor: pointer;
-  color: darkred;
-  padding: 5px 0;
-  border-bottom: 1px solid white;
-  border-top: 1px solid white;
 }
 
 .show-pic i {
@@ -170,8 +168,7 @@ header h1 {
 }
 
 .show-pic a:hover {
-  border-color: darkred;
-
+  color: darkred;
 }
 
 form {
@@ -220,11 +217,14 @@ button:hover {
   border-bottom: 1px solid lightgray;
 }
 
+.captions-container > div:nth-of-type(1) {
+  border-top: 1px solid lightgray;
+}
+
 .captions-container h1 {
   font-size: 24px;
-  padding: 20px 0;
+  padding-bottom: 20px;
   color: #5fdd99;
-  border-bottom: 1px solid #5fdd99;
 }
 
 p {
@@ -235,7 +235,7 @@ p {
 .content {
   text-align: left;
   color: black;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 footer {
