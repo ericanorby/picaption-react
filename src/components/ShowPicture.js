@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
@@ -29,7 +29,7 @@ class ShowPicture extends Component {
   handleNewCaption(caption){
     axios.post(`https://picaption.herokuapp.com/api/pictures/${this.state.pic._id}/captions`, caption)
     .catch((err) => {
-      console.log(err);
+      return err
     })
   }
 
@@ -41,7 +41,7 @@ class ShowPicture extends Component {
       })
     })
     .catch((err) => {
-      console.log(err)
+      return err
     })
   }
 
@@ -65,4 +65,4 @@ class ShowPicture extends Component {
   }
 }
 
-export default ShowPicture;
+export default ShowPicture

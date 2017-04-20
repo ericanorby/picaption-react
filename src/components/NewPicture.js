@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class NewPicture extends Component {
   constructor(props){
@@ -50,4 +50,4 @@ class NewPicture extends Component {
   }
 }
 
-export default NewPicture;
+export default NewPicture

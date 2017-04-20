@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class NewCaption extends Component {
   constructor(props){
@@ -48,4 +48,4 @@ class NewCaption extends Component {
   }
 }
 
-export default NewCaption;
+export default NewCaption

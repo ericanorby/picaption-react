@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -15,14 +15,14 @@ import NewPicture from './components/NewPicture'
 
 const customStyles = {
   content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
   }
-};
+}
 
 class App extends Component {
   constructor(){
@@ -59,7 +59,7 @@ class App extends Component {
       this.update(res.data)
     })
     .catch((err) => {
-      console.log(err);
+      return err
     })
   }
 
@@ -108,7 +108,7 @@ class App extends Component {
             />
             <Route
               path="/pictures/:id"
-              component={ ShowPicture }
+              component={ShowPicture}
             />
             <Route
               path="/*"
@@ -129,4 +129,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

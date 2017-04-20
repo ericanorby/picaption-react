@@ -1,19 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class ShowCaptions extends Component {
-  // constructor(props){
-  //   super(props)
-  //   this.state = {
-  //     captions: this.props.captions
-  //   }
-  // }
 
   render(){
-    var captions
+    var listCaptions
     if (this.props.captions.length === 0) {
-      captions = <p>No one else has submitted a caption yet, check back later <i className="fa fa-smile-o" aria-hidden="true"></i></p>
+      listCaptions = <p>No one else has submitted a caption yet, check back later <i className="fa fa-smile-o" aria-hidden="true"></i></p>
     } else {
-      captions = this.props.captions.map((caption, index) => {
+      listCaptions = this.props.captions.map((caption, index) => {
           return(
             <div key={index}>
               <p className="content">{caption.content}</p>
@@ -25,10 +19,10 @@ class ShowCaptions extends Component {
     return(
       <div className="captions-container">
         <h1><i className="fa fa-check-circle" aria-hidden="true"></i> Thanks for submitting your caption! Now check out what other users submitted:</h1>
-        {captions}
+        {listCaptions}
       </div>
     )
   }
 }
 
-export default ShowCaptions;
+export default ShowCaptions

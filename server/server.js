@@ -1,70 +1,57 @@
-'use strict';
+'use strict'
 
-const express = require('express');
-const cors = require('cors');
-const app = express();
+const express = require('express')
+const cors = require('cors')
+const app = express()
 const port = process.env.PORT || 3001
-const parser = require('body-parser');
-const mongoose = require('./db/connection.js');
-var path = require('path');
+const parser = require('body-parser')
+const mongoose = require('./db/connection.js')
 
-const Picture = require('./db/models.js').Picture;
-const Caption = require('./db/models.js').Caption;
+const Picture = require('./db/models.js').Picture
+const Caption = require('./db/models.js').Caption
 
-// app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
-app.use(parser.json({extended: true}));
+app.use(parser.json({extended: true}))
 
 app.use(cors())
 
-// app.get('/', (req, res) => {
-//   res.sendFile('index.html', {root: __dirname});
-// });
-
-app.get("/api/pictures", function(req, res){
-  Picture.find({}).then(function(pictures){
+app.get("/api/pictures", (req, res) => {
+  Picture.find({}).then((pictures) => {
     res.json(pictures)
   })
 })
 
-app.post("/api/pictures", function(req, res){
+app.post("/api/pictures", (req, res) => {
   Picture.create({
     photo_url: req.body.url,
     alt: req.body.alt
-  }).then(function(picture){
+  }).then((picture) => {
     res.json(picture)
   })
 })
 
-app.delete("/api/pictures/:id", function(req, res){
-  Picture.findOneAndRemove({_id: req.params.id}).then(function(){
+app.delete("/api/pictures/:id", (req, res) => {
+  Picture.findOneAndRemove({_id: req.params.id}).then(() => {
     res.json({success: true})
   })
 })
 
-app.post("/api/pictures/:id/captions", function(req, res){
-  Picture.findOne({_id: req.params.id}).then(function(picture){
-    var newCaption = new Caption(req.body)
+app.post("/api/pictures/:id/captions", (req, res) => {
+  Picture.findOne({_id: req.params.id}).then((picture) => {
+    let newCaption = new Caption(req.body)
     picture.captions.push(newCaption)
-    picture.save(function(err, picture){
-      if (err) throw err;
+    picture.save((err, picture) => {
+      if (err) throw err
       res.json(picture)
     })
   })
 })
 
-app.get("/api/pictures/:id/captions", function(req, res){
-  Picture.findOne({_id: req.params.id}).then(function(picture){
+app.get("/api/pictures/:id/captions", (req, res) => {
+  Picture.findOne({_id: req.params.id}).then((picture) => {
     res.json(picture.captions)
   })
 })
 
-
-// app.put("/api/pictures/:id", function(req, res){
-//   Picture.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}).then(function(picture){
-//     res.json(picture);
-//   });
-// });
-
-app.listen(port, function(){
-  console.log("Port works yaaaaay");
+app.listen(port, () => {
+  console.log("Port works yaaaaay")
 })

@@ -19,7 +19,7 @@ class Pictures extends Component {
       })
     })
     .catch((err) => {
-      console.log(err)
+      return err
     })
   }
 
@@ -32,7 +32,7 @@ class Pictures extends Component {
   }
 
   render(){
-    var pictures = this.state.pictures.map((pic, index) => {
+    let pictures = this.state.pictures.map((pic, index) => {
       let pathname = `/pictures/${pic._id}`
       return(
         <Link key={index} to={{pathname, state: {selected: pic}}}>
@@ -51,4 +51,4 @@ class Pictures extends Component {
   }
 }
 
-export default Pictures;
+export default Pictures
