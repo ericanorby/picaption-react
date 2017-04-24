@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class ShowCaptions extends Component {
 
   render(){
-    var listCaptions
+    let listCaptions
     if (this.props.captions.length === 0) {
       listCaptions = <p>No one else has submitted a caption yet, check back later <i className="fa fa-smile-o" aria-hidden="true"></i></p>
     } else {

@@ -32,16 +32,21 @@ class Pictures extends Component {
   }
 
   render(){
-    let pictures = this.state.pictures.map((pic, index) => {
-      let pathname = `/pictures/${pic._id}`
-      return(
-        <Link key={index} to={{pathname, state: {selected: pic}}}>
-          <div>
-            <img src={pic.photo_url} alt={pic.alt} />
-          </div>
-        </Link>
-      )
-    })
+    let pictures
+    if (this.state.pictures.length){
+      pictures = this.state.pictures.map((pic, index) => {
+        let pathname = `/pictures/${pic._id}`
+        return(
+          <Link key={index} to={{pathname, state: {selected: pic}}}>
+            <div>
+              <img src={pic.photo_url} alt={pic.alt} />
+            </div>
+          </Link>
+        )
+      })
+    } else {
+      pictures = <h1>Loading...</h1>
+    }
 
     return(
       <div className="pictures-container">
