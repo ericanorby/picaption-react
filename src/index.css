@@ -59,7 +59,6 @@ header h1 {
 }
 
 #add-pic-btn, #close-modal-btn {
-  /*background: #5fdd99;*/
   background: #839afc;
   position: absolute;
   right: 0;
@@ -93,7 +92,6 @@ header h1 {
 }
 
 .homepage {
-  /*height: 80vh;*/
   display: flex;
   padding: 80px 0;
   justify-content: center;
@@ -118,6 +116,21 @@ header h1 {
   padding: 30px;
 }
 
+.spinner {
+  height: 40px;
+  width: 40px;
+  border: 8px solid lightgray;
+  border-top: 8px solid black;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+  margin-left: 30px;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
 .pictures-container {
   min-height: 90vh;
   display: flex;
@@ -127,7 +140,7 @@ header h1 {
   padding: 20px;
 }
 
-.pictures-container div {
+.pictures-container .picture-thumbnail {
   background: white;
   padding: 10px 10px 40px 10px;
   margin: 10px;
@@ -135,7 +148,7 @@ header h1 {
   box-shadow: 2px 2px 5px gray;
 }
 
-.pictures-container div:hover {
+.pictures-container .picture-thumbnail:hover {
   border-color: black;
 }
 

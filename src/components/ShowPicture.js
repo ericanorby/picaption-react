@@ -49,7 +49,7 @@ class ShowPicture extends Component {
     if (this.state.deleted) {
       return <Redirect to="/pictures" />
     }
-    var link = undefined
+    let link = undefined
     if (this.state.captionCreated){
       link = <ShowCaptions captions={this.state.captions} />
     } else {

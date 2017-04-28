@@ -38,14 +38,14 @@ class Pictures extends Component {
         let pathname = `/pictures/${pic._id}`
         return(
           <Link key={index} to={{pathname, state: {selected: pic}}}>
-            <div>
+            <div className="picture-thumbnail">
               <img src={pic.photo_url} alt={pic.alt} />
             </div>
           </Link>
         )
       })
     } else {
-      pictures = <h1>Loading...</h1>
+      pictures = <div><h1>Loading...</h1><div className="spinner"></div></div>
     }
 
     return(
